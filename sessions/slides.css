@@ -15,7 +15,7 @@ kbd {
 .remark-slide-content {
   background-size: contain;
   font-family: monospace;
-  font-size: calc(.85em + 2.2vw);
+  font-size: calc(.85em + 2.7vw);
   padding: 1rem 4rem;
 }
 .remark-slide-content h1 {
@@ -39,7 +39,7 @@ kbd {
   letter-spacing: -0.13em;
 }
 .small {
-  font-size: calc(.85em + 2.2vw);
+  font-size: calc(.85em + 2.1vw);
 }
 .remark-code {
   font-size: inherit;
