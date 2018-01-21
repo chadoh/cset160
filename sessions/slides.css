@@ -28,6 +28,18 @@ kbd {
   font-style: normal;
   color: #E15554;
 }
+.remark-slide-content strong {
+  font-weight: normal;
+  font-style: italic;
+}
+.remark-slide-content code {
+  border-radius: 4px;
+  box-shadow: inset 0 0 99em rgba(0,0,0,0.1),
+              inset 0 0 99em rgba(255,255,255,0.2),
+              inset 0 0 5px rgba(0,0,0,0.2);
+  padding: 0.1em 0.3em;
+  white-space: nowrap;
+}
 .remark-slide-content > *:first-child {
   margin-top: 0;
 }
