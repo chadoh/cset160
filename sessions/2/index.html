@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSET 160.2: server to browser</title>
+    <link rel="stylesheet" type="text/css" href="../slides.css">
+    <link rel="shortcut icon" href="../../favicon.png">
+  </head>
+  <body>
+    <textarea id="source" style="display:none">
+
+*CSET 160.2*: server to browser
+
+How to use these slides:
+
+* &lt;kbd&gt;P&lt;/kbd&gt; toggle presenter notes
+* &lt;kbd&gt;?&lt;/kbd&gt; help menu
+* &lt;kbd&gt;&rarr;&lt;/kbd&gt; next slide
+
+Also, [here's the source](https://github.com/chadoh/cset160)
+
+---
+
+CSET 160.2
+
+# server to browser
+
+Using Ruby to send a webpage
+
+---
+
+attendance
+
+# some kind of list
+
+what do you want to list? movies, todos, bands, vegetables?
+
+&lt;small&gt;(*keep it simple*)&lt;/small&gt;
+
+---
+
+background-image: url(img/client-server-model.svg)
+
+???
+
+Review: remember the client-server model?
+
+---
+
+# Let's perform a play
+
+a heroic browser, a thoughtful server, and the friends who help them talk to each other
+
+---
+
+# That was fun! Let's think about it a different way.
+
+---
+
+# Seven Layers of _Networks_
+
+---
+
+# Seven Layers of _Networks_
+
+Open Systems Interconnection (_OSI_) model
+
+---
+
+background-image: url(img/osi-2.jpg)
+
+???
+
+Each layer only talks to the layer above and below it
+
+---
+
+background-image: url(img/osi-3.png)
+
+???
+
+The seven layers pictured another way, taken from Wikipedia: https://en.wikipedia.org/wiki/OSI_model#Description_of_OSI_layers
+
+---
+
+background-image: url(img/osi.gif)
+
+???
+
+A more detailed view
+
+---
+
+# consider again that server
+
+---
+
+# What actually happens on the server?
+
+---
+
+# What actually happens on the server?
+
+CGI: [Common Gateway Interface][CGI]
+
+  [CGI]: https://www.tutorialspoint.com/perl/perl_cgi.htm
+
+---
+
+background-image: url(img/cgiarch.gif)
+
+---
+
+# Let's try it
+
+
+    </textarea>
+    <script src="../remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9'
+      });
+    </script>
+  </body>
+</html>
