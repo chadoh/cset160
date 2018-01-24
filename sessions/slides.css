@@ -12,6 +12,7 @@ kbd {
   border-radius: 5px;
   box-shadow: 0 0 4px rgba(0,0,0,0.5) inset;
 }
+ol, ul { list-style-position: inside }
 .remark-slide-content {
   background-size: contain;
   font-family: monospace;
@@ -51,7 +52,7 @@ kbd {
   letter-spacing: -0.13em;
 }
 .small {
-  font-size: calc(.85em + 2.1vw);
+  font-size: calc(.85em + 1.5vw);
 }
 .remark-code {
   font-size: inherit;

@@ -111,7 +111,214 @@ background-image: url(img/cgiarch.gif)
 
 ---
 
+background-image: url(img/cgiarch-annotated.gif)
+
+???
+
+Confusing as it is, a process called a _server_ runs on the _server_. Sheesh. Naming things is hard!
+
+1. So, the server _process_ sits there, always waiting by the phone, waiting for someone to call.
+2. When someone calls, the _server process_ can handle the request itself, such as for handing back simple `.html` or `.png` files.
+3. For more complicated pages, the _server process_ can pass the request on to a script. This script can use Ruby or any other language.
+4. The script can access a database if it needs to.
+5. Ultimately, the script will create an `.html` file or similar. This is what gets sent back to the client.
+
+---
+
 # Let's try it
+
+---
+
+# Let's try it
+
+1. Save [this file][1] into a new folder
+2. Commit to git, push to GitHub
+3. Run it with `ruby app.rb`
+4. Open http://localhost:5678
+
+  [1]: https://github.com/chadoh/cset160-2-bare-bones-ruby/blob/34a987cf10653ff28578f6e7e879dc1ac5f5f3b3/app.rb
+
+???
+
+Taken from [Building a 30 line HTTP server in Ruby](https://blog.appsignal.com/2016/11/23/ruby-magic-building-a-30-line-http-server-in-ruby.html). Their tutorial digs into the specifics more, and is really helpful!
+
+---
+
+class: small
+
+Inspecting the request
+
+![the Google Chrome network tab](img/network-tab.png)
+
+---
+
+let's deploy!
+
+---
+
+let's deploy on [Heroku][heroku]
+
+  [heroku]: https://devcenter.heroku.com/start
+
+---
+
+background-image: url(img/cgiarch-heroku.gif)
+
+---
+
+let's deploy on [Heroku][heroku]
+
+  [heroku]: https://devcenter.heroku.com/start
+
+1. Sign up for Heroku
+
+---
+
+## 1. Sign up for Heroku
+
+https://signup.heroku.com/
+
+---
+
+let's deploy on [Heroku][heroku]
+
+  [heroku]: https://devcenter.heroku.com/start
+
+1. &lt;strike&gt;Sign up for Heroku&lt;/strike&gt;
+2. Set up Heroku cli
+
+---
+
+## 2. Set up Heroku cli
+
+![go to Heroku Deploy settings for new app](img/heroku-deploy.png)
+
+---
+
+## 2. Set up Heroku cli
+
+![Select Heroku Git deployment method](img/heroku-deployment-method.png)
+
+---
+
+## 2. Set up Heroku cli
+
+![configure heroku git for your app](img/heroku-git-setup.png)
+
+---
+
+class: small
+
+## 2. Set up Heroku cli
+
+Verify. When you run this:
+
+``` bash
+$ git remote -v
+```
+
+Do you see something like this?
+
+``` bash
+heroku  https://git.heroku.com/chadoh-bare-bones-ruby.git (fetch)
+heroku  https://git.heroku.com/chadoh-bare-bones-ruby.git (push)
+origin  git@github.com:chadoh/cset160-2-bare-bones-ruby.git (fetch)
+origin  git@github.com:chadoh/cset160-2-bare-bones-ruby.git (push)
+
+```
+
+---
+
+let's deploy on [Heroku][heroku]
+
+  [heroku]: https://devcenter.heroku.com/start
+
+1. &lt;strike&gt;Sign up for Heroku&lt;/strike&gt;
+2. &lt;strike&gt;Set up Heroku cli&lt;/strike&gt;
+3. Modify app to work with Heroku
+
+---
+
+class: small
+
+## 3. Modify app to work with Heroku
+
+Add [Procfile](https://devcenter.heroku.com/articles/procfile) with this in it:
+
+```ruby
+web: ruby app.rb
+```
+
+---
+
+class: small
+
+## 3. Modify app to work with Heroku
+
+Add [Gemfile](https://devcenter.heroku.com/articles/ruby-support#general-support-activation) with this in it:
+
+``` ruby
+source "https://rubygems.org"
+ruby "2.3.3" # make sure this matches `ruby -v`
+
+```
+
+---
+
+class: small
+
+## 3. Modify app to work with Heroku
+
+Set up [Bundler](http://bundler.io/) to work with that Gemfile.
+
+``` bash
+$ gem install bundler
+$ bundle install
+```
+
+You'll see that you now have a `Gemfile.lock`
+
+---
+
+class: small
+
+## 3. Modify app to work with Heroku
+
+Don't hard-code the port number! Change this
+
+``` bash
+server = TCPServer.new 5678
+```
+
+to this
+
+``` bash
+server = TCPServer.new ENV["PORT"]
+```
+
+This tells Ruby to use the [environment variable set by Heroku](https://devcenter.heroku.com/articles/config-vars)
+
+---
+
+btw, now we'll have to run our local app like this:
+
+```bash
+$ PORT=5678 ruby app.rb
+```
+
+---
+
+let's deploy on [Heroku][heroku]
+
+  [heroku]: https://devcenter.heroku.com/start
+
+1. &lt;strike&gt;Sign up for Heroku&lt;/strike&gt;
+2. &lt;strike&gt;Set up Heroku cli&lt;/strike&gt;
+3. &lt;strike&gt;Modify app to work with Heroku&lt;/strike&gt;
+4. `git push heroku`
+
+
+
 
 
     </textarea>
