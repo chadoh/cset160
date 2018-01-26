@@ -488,6 +488,14 @@ and how about [a layout](https://github.com/chadoh/cset160-2-bare-bones-ruby/com
 
 ---
 
+let's learn about [rackup](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/2e26ef8dbe78774edaeab69a2602383ca47ae6a9)
+
+--
+
+pro tip: tack `?w=1` to the end of that URL
+
+---
+
 Commit &amp; deploy!
 
 ---
@@ -501,6 +509,63 @@ ok but what is a realer way to do this
 ---
 
 👉 http://cuba.is/
+
+---
+
+change your Gemfile
+
+```diff
+- gem "rack"
++ gem "cuba"
++ gem "tilt"
+```
+
+then `bundle install`
+
+???
+
+Does Cuba rely on Rack? How can you check?
+
+---
+
+Switch [the whole way over](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/707b2d1352c57ab1e84de0a3091d376350a5fc77)
+
+---
+
+* Commit &amp; push to github
+* `git push heroku`
+
+---
+
+class: small
+
+Make it [safe](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/af8a46ef03efe5933e167b83075c68c166509abc)!
+
+```diff
+ require "cuba"
++require "cuba/safe"
+ require "cuba/render"
+ require "erb"
+
++Cuba.use Rack::Session::Cookie, :secret =&gt; ENV["SESSION_SECRET"] || "__a_very_long_string__"
++
++Cuba.plugin Cuba::Safe
+ Cuba.plugin Cuba::Render
+```
+
+---
+
+* Commit &amp; push to github
+* `git push heroku`
+
+---
+
+# TODO
+
+* Fix play
+* Print play
+* Figure out raw queries to SQLite3 from Ruby
+* Configure example db reads & writes
 
 
     </textarea>
