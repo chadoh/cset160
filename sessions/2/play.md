@@ -7,62 +7,80 @@ A dramatization of what happens when you type "http://chadoh.com/cset160" into y
 The Cast (in order of appearance)
 ---------------------------------
 
-* **Browser**: our hero; a talented artist who needs good instructions
 * Browser's **friend**: has good ideas for Browser
+* **Browser**: our hero; a talented artist who needs good instructions
 * **Computer** Browser's landlord
 * **Router** A lazy grouch! Computer's secretary
-* **Name Server 1**: claims to know some things
-* **Name Server 2**: knows Server's digits
+* **Local Name Server**: claims to know some things
+* **Root Name Server**: knows where TLD Name Servers are
+* **TLD Name Server**: knows where Chadoh's Name Server is
+* **Chadoh's Name Server**: Knows things about Chadoh.com
 * **Server**: has art instructions for Browser
 
 
 Without Further Ado: The Script!
 --------------------------------
 
-**FRIEND**: Browser! I have a project for you! You can get it from
-chadoh.com, and the instructions are called “/cset160”.
+**FRIEND**: Browser! I have a project for you! You can get it from chadoh.com, and the instructions are called “/cset160”.
 
-**BROWSER**: Thank you kindly, Friend! Let me look that up. Let’s see... I
-will need the number for chadoh.com. [_pause_] Hey, Computer! Do
-you know the number for “chadoh.com”?
+**BROWSER**: Thank you kindly, Friend! Let me look that up. Let’s see... I will need the number for www.chadoh.com since I haven't previously called there.  [_pause_] Hey, Computer! Do you know the number for “chadoh.com”?
 
-**COMPUTER**: I have, like, almost no one in my address book. Hang on,
-Router usually knows these things. [_pause_] Router? Have you been
-listening?
+**COMPUTER**: I have, like, almost no one in my address book. Hang on, our Local Name Server usually knows these things. [_pause_] Router? Can you pass a message to the Local Name Server at this number. [_COMPUTER hands ROUTER a letter_]
 
-**ROUTER**: [_waking up, disgruntled_] Huh? What? What do you want?
+**ROUTER**: [_waking up, disgruntled_] Huh? What? Ok. What's the Local Name Server's number?
 
-**COMPUTER**: Do you know the number for chadoh.com? Browser would
-like a document called “/cset160” from her.
+**COMPUTER**: It's still the same, 8.8.8.8
 
-**ROUTER**: [_lying_] Yeeaaaahh, hang on a second, let me look it up...
-[_whispering to DNS SERVER 1_] Pssst. Yo. You know the number for
-chadoh.com?
+**ROUTER**: [_hands the message to LOCAL NAME SERVER_] here you go
 
-**DNS SERVER 1**: [_quickly_] Hang on. I don’t know about .com stuff, myself.
-[_ROUTER promptly falls asleep_] [_to DNS SERVER 2_] Sir? chadoh.com, please.
+**LOCAL NAME SERVER**: Someone wants to know where "chadoh.com" is. No one's asked before, so I don't know. Let me ask the ROOT NAME SERVER who I should talk to for ".COM" numbers. Hey ROUTER, send this message to the ROOT NAME SERVER.
 
-**DNS SERVER 2**: [_very quickly_] 75.101.145.87
+**ROUTER**: [_waking back up again_] Huh? What's the number again?
 
-**DNS SERVER 1**: [_to Router_] Router, wake up! That number you wanted.
-75.101.145.87. For chadoh.com
+**LOCAL NAME SERVER**: Well you can use any of the 13 different ones, but I like the one at 198.41.0.4
 
-**ROUTER**: [_waking up_] Oh, oh, oh, right, [_to computer_] hey computer, the
-number you wanted is 75.101.145.87
+**ROUTER**: Hey Root Name Server. Message for you. [_hands the message to ROOT NAME SERVER_]
 
-**COMPUTER**: Thanks. Can you ask the server at that number for the document
-“/cset160”, please? [_ROUTER sighs, picks up a phone, calls SERVER_]
+**ROOT NAME SERVER**: [_short and to the point_] COM TLD Name Server at 8.20.247.20
 
-**SERVER**: [_into phone_] Hello?
+**ROUTER**: Hey Local, he says you should talk to the .COM Top Level Domain server.
 
-**ROUTER**: Hey. Could you please send me “/cset160”.
+**LOCAL NAME SERVER**: Thanks. [_writes a new message and hands it to ROUTER_] Can you ask the TLD Name Server for the number to Chadoh's Name Server.
 
-**SERVER**: [_with great fanfare_] Whhyyyy, ceeertainly. [_looks through a
-file, pulls out a document, makes a copy of it, puts copy in an envelope_]
-It’s on it’s way! [_throws the envelope to router_] Have a lovely day!
-[_hangs up_]
+**ROUTER**: [_takes message and drops it on the floor_] Oops, sorry. What did you say?
 
-**ROUTER**: Hm. You too. [_yawns_] Computer, here go. [_hands envelope to
-Computer_]
+**LOCAL NAME SERVER**: [_writes the message again and hands it to the ROUTER_] Can you ask the TLD Name Server for the number to Chadoh's Name Server.
+
+**ROUTER**: [_thinks about dropping it again, but hands it to the TLD Name Server instead_]
+
+**TLD NAME SERVER**: Oh man, someone's asking about Chadoh. I've got his Name Server number right here. It's 104.24.106.163 [_hands a message to ROUTER_]
+
+**ROUTER**: Ok, here you go Local 
+
+**LOCAL NAME SERVER**: Thanks Router. Now I'll ask Chadoh's Name Server what the number for his webserver at "chadoh.com" is since I know his Name Server's number. [_hands another message to the ROUTER_]
+
+**ROUTER**: [_hands the message to Chadoh's Name Server_]
+
+**CHADOH's NAME SERVER**: I totally know the number for my webserver. I'm authorized to tell you the numbers for everything at "chadoh.com". The one you want is 75.101.145.87
+
+**ROUTER**: [_hands the message back to Local Name Server_]
+
+**LOCAL NAME SERVER**: Awesome. I'll hold on to that for a while. [_write down the number_]. Hey Router, can you send this message back to Computer.
+
+**ROUTER**: [_hands the message back to COMPUTER_] Sorry this took so long.  Your local friend had to ask around.
+
+**COMPUTER**: Thanks. Hey Browser. Here's that number you were looking for.
+
+**BROWSER**: Awesome. I'll remember that for a while so I don't have to ask you again. Now can you send this message to number 75.101.145.87.
+
+**COMPUTER**: [_takes message from Browser_] Sure thing. Hey Router, give this to 75.101.145.87.
+
+**ROUTER**: [_now sleepy again_] What? Where? [_rubs eyes while taking the message_] Ok, I'll pass that on.
+
+**SERVER**: Hello. [_reads message_] So someone wants to know what is at "/cset160" [_looks through a file, pulls out a document, makes a copy of it, puts copy in an envelope_] It’s on it’s way! [_throws the envelope to Router_] Have a lovely day!
+
+**ROUTER**: Hm. You too. [_yawns_] Computer, here go. [_hands envelope to Computer_]
 
 **COMPUTER**: [_to Browser_] Here you go, browser!
+
+**BROWSER**: Finally. Ok Friend. Here's the info you asked me about.
