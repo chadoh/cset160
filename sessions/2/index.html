@@ -560,12 +560,45 @@ Make it [safe](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/af8a46
 
 ---
 
-# TODO
+restart your server while you work
 
-* Fix play
-* Print play
-* Figure out raw queries to SQLite3 from Ruby
-* Configure example db reads & writes
+```bash
+$ gem install rerun rb-fsevent
+$ rerun rackup
+```
+
+--
+
+&lt;small&gt;
+There are ways to do this other than [rerun](https://github.com/alexch/rerun), it was just the first one I found
+&lt;/small&gt;
+
+---
+
+What about *databases*?
+
+---
+
+Let's [use SQLite3][sqlite3-example]
+
+  [sqlite3-example]: https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/a476b38140120a388528d83c2f4e905c9381278a
+
+--
+
+(This won't work with Heroku)
+
+---
+
+class: small
+
+# Lab: Make your Cuba app list something
+
+* list all items (like [my example][sqlite3-example])
+* have a `/new` page with a form
+* handle form submission at a new route, and add a new **X** to your database
+* allow deleting items
+
+Do this work *on a branch*. Make a Pull Request, and send me a link! By EOD Monday. I'll review before class next Wednesday.
 
 
     </textarea>
