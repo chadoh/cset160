@@ -7,15 +7,15 @@ A dramatization of what happens when you type "http://chadoh.com/cset160" into y
 The Cast (in order of appearance)
 ---------------------------------
 
-* Browser's **friend**: has good ideas for Browser
-* **Browser**: our hero; a talented artist who needs good instructions
-* **Computer** Browser's landlord
-* **Router** A lazy grouch! Computer's secretary
-* **Local Name Server**: claims to know some things
-* **Root Name Server**: knows where TLD Name Servers are
-* **TLD Name Server**: knows where Chadoh's Name Server is
-* **Chadoh's Name Server**: Knows things about Chadoh.com
-* **Server**: has art instructions for Browser
+1. Browser's **friend**: has good ideas for Browser
+2. **Browser**: our hero; a talented artist who needs good instructions
+3. **Computer** Browser's landlord
+4. **Router** A lazy grouch! Computer's secretary
+5. **Local Name Server**: claims to know some things
+6. **Root Name Server**: knows where TLD Name Servers are
+7. **TLD Name Server**: knows where Chadoh's Name Server is
+8. **Chadoh's Name Server**: Knows things about Chadoh.com
+9. **Server**: has art instructions for Browser
 
 
 Without Further Ado: The Script!
