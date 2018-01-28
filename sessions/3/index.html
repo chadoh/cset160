@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSET 160.3: Hello, Rails!</title>
+    <link rel="stylesheet" type="text/css" href="../slides.css">
+    <link rel="shortcut icon" href="../../favicon.png">
+  </head>
+  <body>
+    <textarea id="source" style="display:none">
+
+*CSET 160.3*: Hello, Rails!
+
+How to use these slides:
+
+* &lt;kbd&gt;P&lt;/kbd&gt; toggle presenter notes
+* &lt;kbd&gt;?&lt;/kbd&gt; help menu
+* &lt;kbd&gt;&rarr;&lt;/kbd&gt; next slide
+
+Also, [here's the source](https://github.com/chadoh/cset160)
+
+---
+
+CSET 160.3
+
+# Hello, *Rails*!
+
+---
+
+attendance
+
+# What's the last restaurant you ate at?
+
+---
+
+concept
+
+# CRUD
+
+--
+
+*C*reate *R*ead *U*pdate *D*estroy
+
+---
+
+class: small
+
+outline
+
+1. *review* of last class
+--
+
+2. *improving* our Cuba app: adding **edit** functionality
+--
+
+3. *improving* our Cuba app *pt II*: improving data handling, meeting `activerecord`
+--
+
+4. intro to *Rails*
+--
+
+5. *Lab*
+
+---
+
+*review*
+
+# simple Ruby apps with Cuba
+
+---
+
+*improving* • live coding
+
+# adding edit functionality
+
+---
+
+class: center, middle
+
+*break*
+
+---
+
+class: small
+
+*improving pt II* • live coding
+
+# move data-handling to a Model
+
+and use `activerecord`
+
+???
+
+Reference: [Go approximately commit-by-commit through this change](https://github.com/chadoh/cset160-2-bare-bones-ruby/compare/activerecord)
+
+---
+
+class: center, middle
+
+*break*
+
+---
+
+*Rails* • introducing
+
+# *Rails*
+
+---
+
+*Rails* • prelude
+
+# convention over configuration
+
+---
+
+*Rails* • try it
+
+* `gem install rails`
+* `rails new rails-demo`
+
+---
+
+*Rails* • tour
+
+# wow, that's a lot of stuff
+
+---
+
+*Rails* • tour
+
+we already know about some of this
+
+--
+
+* `Gemfile` &amp; `Gemfile.lock`
+--
+
+* `config.ru`
+--
+
+* `config/database.yml`
+--
+
+* `app/views` &amp; `app/models`
+---
+
+*Rails* • Introducing *MVC* &lt;br&gt;
+(*M*odel *V*iew *C*ontroller)
+
+# The Waiter, The Kitchen, &amp; The Plate
+
+---
+
+background-image: url(img/waitress.jpg)
+background-size: cover
+
+# *controller*
+
+???
+
+Photo by [Steven Cleghorn][1] on [Unsplash]
+
+  [1]: https://unsplash.com/photos/psomVjxL29Y
+  [Unsplash]: https://unsplash.com/search/photos/waitress
+
+---
+
+background-image: url(img/kitchen.jpg)
+background-size: cover
+class: right
+
+# *model*
+
+???
+
+Photo by [Ash Edmonds][2] on [Unsplash]
+
+  [2]: https://unsplash.com/photos/FiPot-1rsZw
+
+---
+
+background-image: url(img/plate.jpg)
+background-size: cover
+class: right, bottom
+
+# *view*
+
+???
+
+Photo by [Brooke Lark][3] on [Unsplash]
+
+  [3]: https://unsplash.com/photos/jUPOXXRNdcA
+
+---
+
+*Lab*
+
+# Teach Yo'self
+
+Book &rarr; [Hartl Tutorial](https://www.railstutorial.org/) &lt;br&gt;
+Interactive &rarr; [Rails for Zombies](http://railsforzombies.org/)
+
+    </textarea>
+    <script src="../remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9'
+      });
+    </script>
+  </body>
+</html>
