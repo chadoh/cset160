@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CSET 160.1: Hello, Ruby!</title>
+    <title>CSET 160.1: Hello Web! Hello Ruby!</title>
     <link rel="stylesheet" type="text/css" href="../slides.css">
     <link rel="shortcut icon" href="../../favicon.png">
   </head>
   <body>
     <textarea id="source" style="display:none">
 
-*CSET 160.1*: Hello, Ruby!
+*CSET 160.1*: Hello, Web! Hello, Ruby!
 
 How to use these slides:
 
@@ -23,6 +23,7 @@ Also, [here's the source](https://github.com/chadoh/cset160)
 
 CSET 160.1
 
+# Hello, *Web*!
 # Hello, *Ruby*!
 
 ---
@@ -43,29 +44,42 @@ aka: *_why*
 
 ---
 
-# me
+class: small
+
+outline
+
+1. *prelude*: what are we studying?
+--
+
+2. *the web*: meeting HTTP
+--
+
+3. *Ruby*: meeting our first server-side language
+--
+
+4. *Lab*: try Ruby
 
 ---
 
-# Web Developer
+*prelude*
 
-vs
-
-# Software Engineer
+# Web Developer vs *Software Engineer*
 
 ---
 
 # this course
 
+--
+
 Web Development 2
 
 ---
 
-# http
-
----
+*the web*
 
 # http
+
+--
 
 hyper-text transfer protocol
 
@@ -79,6 +93,73 @@ background-image: url(img/client-server-model.svg)
 
 ---
 
+# Let's perform [a play](play.md)
+
+a heroic browser, a thoughtful server, and the friends who help them talk to each other
+
+---
+
+Ok, so lots of stuff happens between your browser and the server
+
+--
+
+But how do they actually talk to each other?
+
+---
+
+# http
+
+--
+
+a protocol
+
+---
+
+...
+
+
+???
+
+Define what a protocol is; go over GET vs POST; learn to inspect network requests in the Chrome inspector (set up a simple app on Heroku?)
+
+---
+
+# consider again that server
+
+---
+
+background-image: url(img/client-server-model.svg)
+
+---
+
+# What actually happens on the server?
+
+--
+
+CGI - the [Common Gateway Interface][CGI]
+
+  [CGI]: https://www.tutorialspoint.com/perl/perl_cgi.htm
+
+---
+
+background-image: url(img/cgiarch.gif)
+
+---
+
+background-image: url(img/cgiarch-annotated.gif)
+
+???
+
+Confusing as it is, a process called a _server_ runs on the _server_. Sheesh. Naming things is hard!
+
+1. So, the server _process_ sits there, always waiting by the phone, waiting for someone to call.
+2. When someone calls, the _server process_ can handle the request itself, such as for handing back simple `.html` or `.png` files.
+3. For more complicated pages, the _server process_ can pass the request on to a script. This script can use Ruby or any other language.
+4. The script can access a database if it needs to.
+5. Ultimately, the script will create an `.html` file or similar. This is what gets sent back to the client.
+
+---
+
 # "web languages"
 
 ???
@@ -86,6 +167,16 @@ background-image: url(img/client-server-model.svg)
 What are web languages?
 
 How does the client-side vs server-side idea play into the notion of web languages?
+
+---
+
+mini-lab
+
+# quiz on how HTTP works
+
+???
+
+TODO
 
 ---
 
@@ -172,13 +263,18 @@ class: small
 
 # Lab Time!
 
-* Go through [tryruby.org][tryruby]
 * Install [asdf] (**what is asdf? why do we want it?**)
 * Use `asdf` to install the latest Ruby
-* Try out the sorts of things you did on tryruby.org with `irb` locally
+* Try out `irb` in your command line
+* Go through [tryruby.org][tryruby]
+* Go through [RubyMonk](https://rubymonk.com/)
 * Read the [Poignant Guide](http://poignant.guide/)
 
   [asdf]: https://github.com/asdf-vm/asdf
+
+???
+
+Make sure all other Ruby version managers are uninstalled before installing `asdf`!
 
     </textarea>
     <script src="../remark-latest.min.js">
