@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CSET 160.2: server to browser</title>
+    <title>CSET 160.2: a simple app</title>
     <link rel="stylesheet" type="text/css" href="../slides.css">
     <link rel="shortcut icon" href="../../favicon.png">
   </head>
   <body>
     <textarea id="source" style="display:none">
 
-*CSET 160.2*: server to browser
+*CSET 160.2*: a simple app
 
 How to use these slides:
 
@@ -23,9 +23,9 @@ Also, [here's the source](https://github.com/chadoh/cset160)
 
 CSET 160.2
 
-# server to browser
+# a simple app
 
-Using Ruby to send a webpage
+Using Ruby to build a webapp
 
 ---
 
@@ -39,6 +39,20 @@ what do you want to list? cities, movies, todos, bands, vegetables?
 
 ---
 
+class: small
+
+outline
+
+1. *review* of http, client-server model, &amp; CGI
+--
+
+2. *try it*: tour some code
+--
+
+3. *lab*: modify the code
+
+---
+
 background-image: url(img/client-server-model.svg)
 
 ???
@@ -47,61 +61,9 @@ Review: remember the client-server model?
 
 ---
 
-# Let's perform [a play](play.md)
+# Remember CGI?
 
-a heroic browser, a thoughtful server, and the friends who help them talk to each other
-
----
-
-# That was fun! Let's think about it a different way.
-
----
-
-# Seven Layers of _Networks_
-
----
-
-# Seven Layers of _Networks_
-
-Open Systems Interconnection (_OSI_) model
-
----
-
-background-image: url(img/osi-2.jpg)
-
-???
-
-Each layer only talks to the layer above and below it
-
----
-
-background-image: url(img/osi-3.png)
-
-???
-
-The seven layers pictured another way, taken from Wikipedia: https://en.wikipedia.org/wiki/OSI_model#Description_of_OSI_layers
-
----
-
-background-image: url(img/osi.gif)
-
-???
-
-A more detailed view
-
----
-
-# consider again that server
-
----
-
-# What actually happens on the server?
-
----
-
-# What actually happens on the server?
-
-CGI: [Common Gateway Interface][CGI]
+([Common Gateway Interface][CGI])
 
   [CGI]: https://www.tutorialspoint.com/perl/perl_cgi.htm
 
@@ -127,465 +89,28 @@ Confusing as it is, a process called a _server_ runs on the _server_. Sheesh. Na
 
 # Let's try it
 
----
-
-# Let's try it
-
-1. Save [this file][1] into a new folder
-2. Commit to git, push to GitHub
-3. Run it with `ruby app.rb`
-4. Open http://localhost:5678
-
-  [1]: https://github.com/chadoh/cset160-2-bare-bones-ruby/blob/34a987cf10653ff28578f6e7e879dc1ac5f5f3b3/app.rb
+start [here](https://github.com/chadoh/cset160-2-bare-bones-ruby/)
 
 ???
 
-Taken from [Building a 30 line HTTP server in Ruby](https://blog.appsignal.com/2016/11/23/ruby-magic-building-a-30-line-http-server-in-ruby.html). Their tutorial digs into the specifics more, and is really helpful!
+1. Download as a zip, without the commit history.
+2. Save to new folder.
+3. Commit my starting code to git.
+4. As you work, work on a new branch.
 
 ---
 
-class: small
-
-Inspecting the request
-
-![the Google Chrome network tab](img/network-tab.png)
-
----
-
-Too close to the metal
-
----
-
-class: small
-
-# Let's use [Rack]
-
-  [Rack]: https://rack.github.io/
+...
 
 ???
 
-Rack is the foundation of basically any Ruby web framework, however big or small. You can even use it by itself to make web apps, and it's not as bad as you might think. Check out http://hawkins.io/2012/07/rack_from_the_beginning/
-
----
-
-class: small
-
-# Let's use [Rack]
-
-Make your `app.rb` look like [this file](https://github.com/chadoh/cset160-2-bare-bones-ruby/blob/30526243763fe9b5bd17727020dc3a4718941f1f/app.rb)
-
----
-
-class: small
-
-# Let's use [Rack]
-
-Install it
-
-```bash
-$ gem install rack
-```
-
----
-
-class: small
-
-# Let's use [Rack]
-
-Run the app
-
-```bash
-$ ruby app.rb
-INFO  WEBrick 1.4.2
-INFO  ruby 2.5.0 (2017-12-25) [x86_64-darwin17]
-INFO  WEBrick::HTTPServer#start: pid=85529 port=8080
-```
-
----
-
-class: small
-
-# Let's use [Rack]
-
-Visit it in your browser
-
-```bash
-http://localhost:8080
-```
-
----
-
-class: small
-
-# Let's use [Rack]
-
-Commit &amp; push to GitHub
-
-```bash
-$ git add -p
-$ git commit
-$ git push
-```
-
----
-
-let's deploy!
-
----
-
-let's deploy on [Heroku][heroku]
-
-  [heroku]: https://devcenter.heroku.com/start
-
----
-
-background-image: url(img/cgiarch-heroku.gif)
-
----
-
-let's deploy on [Heroku][heroku]
-
-  [heroku]: https://devcenter.heroku.com/start
-
-1. Sign up for Heroku
-
----
-
-## 1. Sign up for Heroku
-
-https://signup.heroku.com/
-
----
-
-let's deploy on [Heroku][heroku]
-
-  [heroku]: https://devcenter.heroku.com/start
-
-1. &lt;strike&gt;Sign up for Heroku&lt;/strike&gt;
-2. Set up Heroku cli
-
----
-
-## 2. Set up Heroku cli
-
-![go to Heroku Deploy settings for new app](img/heroku-deploy.png)
-
----
-
-## 2. Set up Heroku cli
-
-![Select Heroku Git deployment method](img/heroku-deployment-method.png)
-
----
-
-## 2. Set up Heroku cli
-
-![configure heroku git for your app](img/heroku-git-setup.png)
-
----
-
-class: small
-
-## 2. Set up Heroku cli
-
-Verify. When you run this:
-
-``` bash
-$ git remote -v
-```
-
-Do you see something like this?
-
-``` bash
-heroku  https://git.heroku.com/chadoh-bare-bones-ruby.git (fetch)
-heroku  https://git.heroku.com/chadoh-bare-bones-ruby.git (push)
-origin  git@github.com:chadoh/cset160-2-bare-bones-ruby.git (fetch)
-origin  git@github.com:chadoh/cset160-2-bare-bones-ruby.git (push)
-
-```
-
----
-
-let's deploy on [Heroku][heroku]
-
-  [heroku]: https://devcenter.heroku.com/start
-
-1. &lt;strike&gt;Sign up for Heroku&lt;/strike&gt;
-2. &lt;strike&gt;Set up Heroku cli&lt;/strike&gt;
-3. Modify app to work with Heroku
-
----
-
-class: small
-
-## 3. Modify app to work with Heroku
-
-Add [Procfile](https://devcenter.heroku.com/articles/procfile) with this in it:
-
-```ruby
-web: ruby app.rb -p $PORT
-```
-
-???
-
-The Procfile (process file), as described in the link, tells Heroku how to run your app. The `web:` at the beginning tells it that this should be a _web_ process. Heroku allows other kinds of processes, too. We'll learn about those in the Rails part of the class.
-
---
-
-&lt;small&gt;
-Try it out:
-
-```bash
-$ ruby app.rb -p 5678
-```
-&lt;/small&gt;
-
----
-
-class: small
-
-## 3. Modify app to work with Heroku
-
-Add [Gemfile](https://devcenter.heroku.com/articles/ruby-support#general-support-activation) with this in it:
-
-``` ruby
-source "https://rubygems.org"
-ruby "2.5.0" # make sure this matches `ruby -v`
-
-gem "rack"
-
-```
-
-???
-
-The Gemfile, as described in the link, tells Heroku that this is a Ruby app. Not all Ruby apps use Bundler (`Gemfile` is a convention used by Bundler), but enough do that Heroku thought it made sense for this to be the trigger.
-
----
-
-class: small
-
-## 3. Modify app to work with Heroku
-
-Set up [Bundler](http://bundler.io/) to work with that Gemfile.
-
-``` bash
-$ gem install bundler
-$ bundle install
-```
-
-You'll see that you now have a `Gemfile.lock`
-
----
-
-class: small
-
-## 3. Modify app to work with Heroku
-
-Don't hard-code the port number!
-
----
-
-class: small
-
-## 3. Modify app to work with Heroku
-
-Don't hard-code the port number! Change this
-
-``` bash
-:Port =&gt; 5678
-```
-
---
-
-to this
-
-``` bash
-:Port =&gt; ENV['PORT'] || 5678
-```
-
---
-
-This tells Rack to use the [environment variable set by Heroku](https://devcenter.heroku.com/articles/config-vars), or to use 5678 if it isn't defined
-
----
-
-btw, you can try out that `ENV` thing like this:
-
-```bash
-$ PORT=1234 ruby app.rb
-```
-
-Then open up `localhost:1234`
-
----
-
-class: small
-
-## 3. Modify app to work with Heroku
-
-Commit &amp; push to GitHub
-
-```bash
-$ git add .
-$ git commit
-$ git push
-```
-
----
-
-let's deploy on [Heroku][heroku]
-
-  [heroku]: https://devcenter.heroku.com/start
-
-1. &lt;strike&gt;Sign up for Heroku&lt;/strike&gt;
-2. &lt;strike&gt;Set up Heroku cli&lt;/strike&gt;
-3. &lt;strike&gt;Modify app to work with Heroku&lt;/strike&gt;
-4. `git push heroku`
-
----
-
-class: center, middle
-
-# 🎉
-
----
-
-# But wait!
-
----
-
-class: center, middle
-
-# 📃 📄 📑 ❓
-
----
-
-# trouble in paradise
-
-```bash
-http://localhost:5678/newpage
-http://localhost:5678/hello???
-http://localhost:5678/whatever
-```
-
----
-
-class: center, middle
-
-# 😕
-
----
-
-a [stupid simple](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/1d64dd429dc21bcd703419e2603adb8bdaf67e6f) way to add routing
-
----
-
-oh but we need to mind our [http status codes](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/e4b041efaff7d9ed952e07608b8de148af17d17d)
-
----
-
-and how about [a layout](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/c4576c691803df012806976a6ed05cf6e3d8a413)
-
----
-
-let's learn about [rackup](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/2e26ef8dbe78774edaeab69a2602383ca47ae6a9)
-
---
-
-pro tip: tack `?w=1` to the end of that URL
-
----
-
-Commit &amp; deploy!
-
----
-
-ok but what is a realer way to do this
-
----
-
-# microframeworks!
-
----
-
-👉 http://cuba.is/
-
----
-
-change your Gemfile
-
-```diff
-- gem "rack"
-+ gem "cuba"
-+ gem "tilt"
-```
-
-then `bundle install`
-
-???
-
-Does Cuba rely on Rack? How can you check?
-
----
-
-Switch [the whole way over](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/707b2d1352c57ab1e84de0a3091d376350a5fc77)
-
----
-
-* Commit &amp; push to github
-* `git push heroku`
-
----
-
-class: small
-
-Make it [safe](https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/af8a46ef03efe5933e167b83075c68c166509abc)!
-
-```diff
- require "cuba"
-+require "cuba/safe"
- require "cuba/render"
- require "erb"
-
-+Cuba.use Rack::Session::Cookie, :secret =&gt; ENV["SESSION_SECRET"] || "__a_very_long_string__"
-+
-+Cuba.plugin Cuba::Safe
- Cuba.plugin Cuba::Render
-```
-
----
-
-* Commit &amp; push to github
-* `git push heroku`
-
----
-
-restart your server while you work
-
-```bash
-$ gem install rerun rb-fsevent
-$ rerun rackup
-```
-
---
-
-&lt;small&gt;
-There are ways to do this other than [rerun](https://github.com/alexch/rerun), it was just the first one I found
-&lt;/small&gt;
-
----
-
-What about *databases*?
-
----
-
-Let's [use SQLite3][sqlite3-example]
-
-  [sqlite3-example]: https://github.com/chadoh/cset160-2-bare-bones-ruby/commit/a476b38140120a388528d83c2f4e905c9381278a
-
---
-
-(This won't work with Heroku)
+Tour of the code, explanation of everything that's happening.
+
+* Rack
+* config.ru
+* Reading the output from `rackup` to find the port
+* Running on a different port with `rackup -p 3000`?
+* Walking through the README
 
 ---
 
@@ -603,6 +128,9 @@ sure it still does all these things:
 
 Do your work *on a branch*. Make a Pull Request, and send me a link! By EOD Monday. I'll review before class next Wednesday.
 
+???
+
+Tip: Make a typeform or Google Form for submitting link to their PR, so it's easy to keep track of who submitted so far.
 
     </textarea>
     <script src="../remark-latest.min.js">
